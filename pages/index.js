@@ -9,7 +9,7 @@ import { ZORA_MEDIA_BY_OWNER } from "@data/queries"; // Retrieval query
 import styles from "@styles/pages/Profile.module.scss"; // Component styles
 
 export default function Home() {
-  const address = '0x5f390d34090400af0dbf5bf96226437830b588b9';
+  const address = '0x13b727b3878319837909743ec435330999bad942';
   const [posts, setPosts] = useState([]); // Posts array
   const [loading, setLoading] = useState(true); // Global loading state
 
@@ -19,7 +19,7 @@ export default function Home() {
   const collectOwnedMedia = async () => {
     // Collect all postIDs by owner
       const allPosts = await client.request(
-          ZORA_MEDIA_BY_OWNER(address.toLowerCase)
+          ZORA_MEDIA_BY_OWNER(address.toLowerCase())
     );
 
     let ownedMedia = [];
