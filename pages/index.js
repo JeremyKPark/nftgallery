@@ -86,7 +86,7 @@ export default function Home() {
       ) : posts.length > 0 ? (
         // Else if, post count > 0
         <div className={styles.profile__media}>
-          {posts.map((post, i) => {
+  	{posts.map((post, i) => {
             // For each Zora post
             return (
               // Return Post component
@@ -101,7 +101,7 @@ export default function Home() {
               />
             );
           })}
-        </div>
+</div>
       ) : (
         // Else, if not loading and post count !> 0, return no owned media
         <div className={styles.profile__media_empty}>
