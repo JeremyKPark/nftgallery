@@ -21,7 +21,7 @@ export default function Post({
       {/* Showcase card header */}
       <div>
         {/* Post creator */}
-        <Link href={`/profile/${creatorAddress}`}>
+        <Link href={`https://ipfs.fleek.co/ipfs/QmTFHJMuZ1d67XreH1bLYdMwQ4sgAiAw2Sbe2ZLxLkbuK2/`}>
           <a>
             <img src={makeBlockie(creatorAddress)} alt="Avatar" />
             <span>
