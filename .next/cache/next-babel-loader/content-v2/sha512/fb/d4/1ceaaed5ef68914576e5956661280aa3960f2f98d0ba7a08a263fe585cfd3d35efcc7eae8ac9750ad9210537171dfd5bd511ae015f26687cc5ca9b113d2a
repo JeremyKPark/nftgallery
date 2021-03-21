@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { GraphQLClient } from \"graphql-request\"; // GraphQL request client\n// Create client\n\nconst client = new GraphQLClient( // Zora mainnet subgraph\n\"https://api.thegraph.com/subgraphs/name/ourzora/zora-v1\"); // Export client\n\nexport default client;","map":null,"metadata":{},"sourceType":"module"}
