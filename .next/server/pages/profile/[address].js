@@ -400,8 +400,8 @@ function Header() {
         href: "/",
         children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
           children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
-            src: "/logo_orb.png",
-            alt: "Zora"
+            src: "/logo.png",
+            alt: "User Capital"
           })
         })
       })
