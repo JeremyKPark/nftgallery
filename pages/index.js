@@ -19,7 +19,7 @@ export default function Home() {
   const collectOwnedMedia = async () => {
     // Collect all postIDs by owner
       const allPosts = await client.request(
-          ZORA_MEDIA_BY_OWNER(address.toLowerCase)
+          ZORA_MEDIA_BY_OWNER(address.toLowerCase())
     );
 
     let ownedMedia = [];
