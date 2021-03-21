@@ -9,7 +9,7 @@ import { ZORA_MEDIA_BY_OWNER } from "@data/queries"; // Retrieval query
 import styles from "@styles/pages/Profile.module.scss"; // Component styles
 
 export default function Home() {
-  const address = '0x13b727b3878319837909743ec435330999bad942';
+  const address = '0x3ada0a88835691dac6ae3ea2bdd4af14ee76b081';
   const [posts, setPosts] = useState([]); // Posts array
   const [loading, setLoading] = useState(true); // Global loading state
 

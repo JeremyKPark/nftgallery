@@ -90,7 +90,7 @@ export default function Create() {
                   {/* Media upload */}
                   <div>
                     <label htmlFor="upload">
-                      Upload Media{" "}
+                      Upload Media for Web Display{" "}
                       <span className={styles.create__upload_required}>
                         (required)
                       </span>
@@ -131,7 +131,49 @@ export default function Create() {
                         </section>
                       )}
                     </Dropzone>
-                  </div>
+                                      </div>
+
+
+                  {/* Print Media upload */}
+                  <div>
+                                          <label htmlFor="upload">
+                                              Upload High Res Print File{" "}
+                                              <span className={styles.create__upload_required}>
+                                                  (required)
+                      </span>
+                                          </label>
+                                          <span>
+                                              Please upload a high resolution image for print.
+                    </span>
+                                          <Dropzone
+                                              // Restrict to maximum 1 upload
+                                              maxFiles={1}
+                                              // Restrict drozone to specific mimetypes
+                                              accept={[
+                                                  "image/png",
+                                                  "image/jpeg",
+                                                  "image/gif",
+                                                  "image/tiff"
+                                              ]}
+                                              // On file drop, run storkDropHandler
+                                              
+                                          >
+                                              {({ getRootProps, getInputProps }) => (
+                                                  <section>
+                                                      <div
+                                                          className={styles.upload__field}
+                                                          {...getRootProps()}
+                                                      >
+                                                          <input {...getInputProps()} />
+                                                          <span>
+                                                              You can drag and drop file here.
+                                                          </span>
+                                                      </div>
+                                                  </section>
+                                              )}
+                                          </Dropzone>
+                                      </div>
+
 
                   {/* Media name */}
                   <div>

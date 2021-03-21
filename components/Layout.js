@@ -22,8 +22,8 @@ function Meta({ isProfile }) {
   return (
     <Head>
       {/* Primary Meta Tags */}
-      <title>Zora Gallery</title>
-      <meta name="title" content="Zora Gallery" />
+      <title>User Capital Gallery</title>
+          <meta name="title" content="User Capital Gallery" />
       <meta
         name="description"
         content="Open protocols demand open access. Community-operated interface to ZoraOS."
@@ -32,7 +32,7 @@ function Meta({ isProfile }) {
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://zora.gallery/" />
-      <meta property="og:title" content="Zora Gallery" />
+          <meta property="og:title" content="User Capital Gallery" />
       <meta
         property="og:description"
         content="Open protocols demand open access. Community-operated interface to ZoraOS."

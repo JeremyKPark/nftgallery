@@ -3,7 +3,7 @@ import { promisify } from "util"; // Promisify fs
 import { v4 as uuid } from "uuid"; // UUID generation
 import formidable from "formidable"; // Formidable form handling
 // import fleekStorage from "@fleekhq/fleek-storage-js"; // Fleek storage
-import { NFTStorage, Blob } from 'nft.storage' // NFT.Storage
+import { NFTStorage, File } from 'nft.storage' // NFT.Storage
 
 // Fleek authentication
 //const fleekAuth = {
@@ -14,7 +14,7 @@ import { NFTStorage, Blob } from 'nft.storage' // NFT.Storage
 //NFT.Storage authentication
 const apiKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJnaXRodWJ8NzM1NzcxMTYiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTYxNjI2MzUwMjUwNSwibmFtZSI6IlpvcmFVcGxvYWQifQ.bFZ9Rqp_483Jkscr_8T_1zN66SvBC-ngfmxg0GX004E';
 const client = new NFTStorage({ token: apiKey });
-const ipfsGateway = 'https://dweb.link/';
+const ipfsGateway = '.ipfs.dweb.link/';
 
 // Async readFile operation
 const readFileAsync = promisify(fs.readFile);
@@ -43,16 +43,27 @@ export default async (req, res) => {
 
   // If file, name, and metadata provided
   if (fileData && name && metadata) {
-    // Upload media to NFT.Storage
-	const contentFile = new Blob([fileData]);
-	const fileUrl = ipfsGateway + (await client.storeBlob(contentFile)) + '/';
 
-    // Upload MetaData to NFT.Storage
-	const contentMeta = new Blob([metadata]);
-        const metadataUrl = ipfsGateway + (await client.storeBlob(contentMeta)) + '/';
-        console.log({fileUrl, metadataUrl});
+    // Get Blob from filedata
+	//const contentFile = new Blob([fileData]);
 
-    // Upload media to Fleek
+
+    // Get Blob from Metadata
+    //const contentMeta = new Blob([metadata]);
+
+
+
+    //INIT directory on NFT.Storage and get CID
+    const cid = await client.storeDirectory([
+        new File([fileData], 'image.jpg'),
+        new File([metadata], 'metadata.json')
+    ]);
+
+    const fileUrl = 'https://' + cid + ipfsGateway + 'image.jpg';
+    const metadataUrl = 'https://' + cid + ipfsGateway + 'metadata.json';
+    console.log({ fileUrl, metadataUrl });
+
+      // Upload media to Fleek
     	// const { publicUrl: fileUrl } = await fleekStorage.upload({
     	//  ...fleekAuth,
     	// key: uuid(),
