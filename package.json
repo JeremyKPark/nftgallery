@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start"
   },
+  "homepage": "./",
   "dependencies": {
     "@fleekhq/fleek-storage-js": "^1.0.9",
     "@walletconnect/web3-provider": "^1.3.4",
